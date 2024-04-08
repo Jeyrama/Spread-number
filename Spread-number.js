@@ -14,13 +14,19 @@ Example:
 
 // Solution
 
-function rankings(arr){
-  let sorted = arr.concat().sort( function(a,b) {
+function rankings(arr) {
+  let sorted = arr.concat().sort(function(a,b) {
   return b-a;
   });
 
-  return arr.map( function (element) {
+  return arr.map(function (element) {
     return sorted.indexOf(element) +1
     });
+}
 
 // or
+
+function rankings(arr) {
+  const a = arr.slice().sort((a,b)=>b-a)
+  return arr.map(x=>a.indexOf(x)+1)
+}
