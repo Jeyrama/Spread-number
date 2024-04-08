@@ -13,3 +13,12 @@ Example:
 
 
 // Solution
+
+function rankings(arr){
+  let sorted = arr.concat().sort( function(a,b) {
+  return b-a;
+  });
+
+  return arr.map( function (element) {
+    return sorted.indexOf(element) +1
+    });
