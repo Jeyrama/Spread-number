@@ -22,3 +22,5 @@ function rankings(arr){
   return arr.map( function (element) {
     return sorted.indexOf(element) +1
     });
+
+// or
