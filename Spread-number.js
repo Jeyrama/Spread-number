@@ -14,19 +14,14 @@ Example:
 
 // Solution
 
-function rankings(arr) {
-  let sorted = arr.concat().sort(function(a,b) {
-  return b-a;
-  });
-
-  return arr.map(function (element) {
-    return sorted.indexOf(element) +1
-    });
+// The spread operator only works on iteratable objects, so we need to make Number iteratable.
+Number.prototype[Symbol.iterator] = function* () {
+  let i = 0;
+  while (i < this) yield ++i;
 }
 
 // or
 
-function rankings(arr) {
-  const a = arr.slice().sort((a,b)=>b-a)
-  return arr.map(x=>a.indexOf(x)+1)
+Number.prototype[Symbol.iterator] = function*() {
+  yield* [...Array(+this).keys()].map((n) => n + 1);
 }
